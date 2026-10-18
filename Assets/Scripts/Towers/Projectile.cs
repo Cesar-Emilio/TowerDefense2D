@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -6,13 +7,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float hitRadius = 0.35f;
     [SerializeField] private float lifetime = 2f;
 
+    private HashSet<Enemy> enemiesHit = new HashSet<Enemy>();
+
     private Vector3 direction;
     private int damage;
+    private int pierceLeft;
 
-    public void Init(Vector3 targetPosition, int damage, float shotSpeed) {
+    public void Init(Vector3 targetPosition, int damage, float shotSpeed, int pierce) {
         direction = (targetPosition - transform.position).normalized;
         this.damage = damage;
         this.speed = shotSpeed;
+        pierceLeft = pierce;
         Destroy(gameObject, lifetime);
     }
 
@@ -20,18 +25,27 @@ public class Projectile : MonoBehaviour
     {
         transform.position += direction * speed * Time.deltaTime;
 
+        List<Enemy> frameHits = new List<Enemy>();
+
         //buscar a qn pegarle
-        Enemy hit = null;
         foreach (Enemy enemy in Enemy.Active) {
             if (Vector2.Distance(transform.position, enemy.transform.position) <= hitRadius) {
-                hit = enemy;
-                break;
+                if (!enemiesHit.Contains(enemy)) {
+                    frameHits.Add(enemy);
+                }
             }
         }
 
-        // ya sabiendo a qn, hacer el daño
-        if (hit != null) {
-            hit.TakeDamage(damage);
+        //Más de un golpe si tiene hijos el enemigo
+        foreach(Enemy enemy in frameHits) {
+            if (pierceLeft <= 0) break;
+
+            enemiesHit.Add(enemy);
+            enemy.TakeDamage(damage);
+            pierceLeft--;
+        }
+
+        if(pierceLeft <= 0) {
             Destroy(gameObject);
         }
     }

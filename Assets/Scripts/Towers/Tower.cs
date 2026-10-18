@@ -71,7 +71,7 @@ public class Tower : MonoBehaviour
     private void Shoot(Enemy target)
     {
         Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        projectile.Init(target.transform.position, current.damage, current.shotSpeed);
+        projectile.Init(target.transform.position, current.damage, current.shotSpeed, current.pierce);
     }
 
     // Dibuja el rango en la vista Scene cuando seleccionas la torre

@@ -50,7 +50,7 @@ MonoBehaviour:
       bonusShotSpeed: 8
       fireRateMultiplier: 0
       bonusPierce: 0
-      grantsCamoDetection: 1
+      grantsCamoDetection: 0
       description: "Cada p\xE9talo encuentra su alma."
   - pathName: Ritmo
     upgrades:

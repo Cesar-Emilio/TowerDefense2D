@@ -2037,6 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9968b45975f9e4d8159a6d884ea645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartWaveButton
+  startKeyShortcut: 2
 --- !u!1 &918984367
 GameObject:
   m_ObjectHideFlags: 0
