@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
     private bool isDead;
 
     public float DistanceTravelled { get; private set; }
+    public EnemyData Data => data;
 
     public void Setup(EnemyData data, int targetIndex, float distanceTravelled) {
         this.data = data;
@@ -53,10 +54,10 @@ public class Enemy : MonoBehaviour {
         GameManager.Instance.AddMoney(data.reward);
         if (data.child != null) {
             Vector3 lastTarget = EnemyPath.Instance.GetWaypoint(targetIndex - 1);
+            Vector3 direction = (lastTarget - transform.position).normalized;
             for (int i = 0; i < data.childCount; i++) {
                 float positionDelay = (float) i * 0.3f;
 
-                Vector3 direction = (lastTarget - transform.position).normalized;
 
                 EnemyFactory.Instance.Spawn(
                     data.child,

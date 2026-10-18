@@ -11,6 +11,8 @@ public class TowerPlacer : MonoBehaviour {
     private Tower prefab; //Lo que se coloca
     private Tower preview; //Copia que sigue al mouse
 
+    public Color ValidColor => validColor;
+
     public bool IsPlacing => preview != null;
 
     private void Awake() => Instance = this;
