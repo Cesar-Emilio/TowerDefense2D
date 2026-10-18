@@ -19,36 +19,11 @@ MonoBehaviour:
     damage: 1
     range: 3
     shotSpeed: 12
-    rateOfFire: 1.5
+    rateOfFire: 1.4
     pierce: 1
     seesCamo: 0
   paths:
   - pathName: Mirada
-    pathData:
-    - upgradeName: Ojos de calavera
-      upgradeCost: 120
-      bonusDamage: 0
-      bonusRange: 1
-      bonusShotSpeed: 0
-      fireRateMultiplier: 0
-      bonusPierce: 0
-      grantsCamoDetection: 0
-    - upgradeName: "Mirada del m\xE1s all\xE1"
-      upgradeCost: 250
-      bonusDamage: 0
-      bonusRange: 0.5
-      bonusShotSpeed: 0
-      fireRateMultiplier: 0
-      bonusPierce: 0
-      grantsCamoDetection: 1
-    - upgradeName: Catrina certera
-      upgradeCost: 650
-      bonusDamage: 2
-      bonusRange: 1.5
-      bonusShotSpeed: 8
-      fireRateMultiplier: 0
-      bonusPierce: 0
-      grantsCamoDetection: 1
     upgrades:
     - upgradeName: Ojos de calavera
       upgradeCost: 120
@@ -75,31 +50,6 @@ MonoBehaviour:
       bonusPierce: 0
       grantsCamoDetection: 1
   - pathName: Ritmo
-    pathData:
-    - upgradeName: Abanico veloz
-      upgradeCost: 160
-      bonusDamage: 0
-      bonusRange: 0
-      bonusShotSpeed: 0
-      fireRateMultiplier: 0.3
-      bonusPierce: 0
-      grantsCamoDetection: 0
-    - upgradeName: "P\xE9talos afilados"
-      upgradeCost: 300
-      bonusDamage: 0
-      bonusRange: 0
-      bonusShotSpeed: 0
-      fireRateMultiplier: 0
-      bonusPierce: 2
-      grantsCamoDetection: 0
-    - upgradeName: Lluvia de flores
-      upgradeCost: 900
-      bonusDamage: 1
-      bonusRange: 0
-      bonusShotSpeed: 0
-      fireRateMultiplier: 1
-      bonusPierce: 0
-      grantsCamoDetection: 0
     upgrades:
     - upgradeName: Abanico veloz
       upgradeCost: 160
