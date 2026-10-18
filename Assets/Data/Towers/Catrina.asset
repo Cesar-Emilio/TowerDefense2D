@@ -33,6 +33,7 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 0
+      description: "Cuencas bien abiertas: ve m\xE1s lejos."
     - upgradeName: "Mirada del m\xE1s all\xE1"
       upgradeCost: 250
       bonusDamage: 0
@@ -41,6 +42,7 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 1
+      description: "Ve a los esp\xEDritus que se esconden."
     - upgradeName: Catrina certera
       upgradeCost: 650
       bonusDamage: 2
@@ -49,6 +51,7 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 1
+      description: "Cada p\xE9talo encuentra su alma."
   - pathName: Ritmo
     upgrades:
     - upgradeName: Abanico veloz
@@ -59,6 +62,7 @@ MonoBehaviour:
       fireRateMultiplier: 0.3
       bonusPierce: 0
       grantsCamoDetection: 0
+      description: "Abanica m\xE1s r\xE1pido."
     - upgradeName: "P\xE9talos afilados"
       upgradeCost: 300
       bonusDamage: 0
@@ -67,6 +71,7 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 2
       grantsCamoDetection: 0
+      description: "Sus p\xE9talos atraviesan a varios fantasmas."
     - upgradeName: Lluvia de flores
       upgradeCost: 900
       bonusDamage: 1
@@ -75,3 +80,4 @@ MonoBehaviour:
       fireRateMultiplier: 1
       bonusPierce: 0
       grantsCamoDetection: 0
+      description: "Una tormenta de cempas\xFAchil."

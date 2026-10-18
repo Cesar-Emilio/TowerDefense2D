@@ -276,6 +276,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 661605524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &81708941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81708942}
+  - component: {fileID: 81708943}
+  - component: {fileID: 81708944}
+  m_Layer: 5
+  m_Name: Upgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &81708942
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81708941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1850497298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -90}
+  m_SizeDelta: {x: 440, y: 540}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &81708943
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81708941}
+  m_CullTransparentMesh: 1
+--- !u!114 &81708944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81708941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &204007854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1442,7 @@ GameObject:
   - component: {fileID: 741294149}
   - component: {fileID: 741294148}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SellButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3886,6 +3957,7 @@ RectTransform:
   - {fileID: 617305997}
   - {fileID: 239535674}
   - {fileID: 777963721}
+  - {fileID: 81708942}
   m_Father: {fileID: 2085090407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4219,11 +4291,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerPanel
   content: {fileID: 1850497297}
   towerNameText: {fileID: 617305998}
-  targetModeText: {fileID: 1070771853}
   sellTowerText: {fileID: 741294148}
+  sellTowerButton: {fileID: 239535675}
+  targetModeText: {fileID: 1070771853}
   nextTargetModeButton: {fileID: 801218921}
   lastTargetModeButton: {fileID: 1807696983}
-  sellTowerButton: {fileID: 239535675}
+  pathPrefab: {fileID: 2582606112372673558, guid: 7c535838d51b7024cb9df874b44a30c3, type: 3}
+  upgradesContainer: {fileID: 81708942}
 --- !u!1 &2087113441
 GameObject:
   m_ObjectHideFlags: 0
