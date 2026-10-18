@@ -230,12 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9da20dda2dba14c806b3dc7f04caa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  towerName: Catrina
-  range: 3
-  fireRate: 1.5
-  damage: 1
   projectilePrefab: {fileID: 6748569201623024538, guid: 2cf884998bb896f4987122ae1b6145b4, type: 3}
-  cost: 200
-  radius: 0.35
   rangeIndicator: {fileID: 8845216135644132179}
   sellRatio: 0.4
+  data: {fileID: 11400000, guid: 485fa314f395f554688c07d18db33d8a, type: 2}

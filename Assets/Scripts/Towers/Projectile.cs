@@ -9,9 +9,10 @@ public class Projectile : MonoBehaviour
     private Vector3 direction;
     private int damage;
 
-    public void Init(Vector3 targetPosition, int damage) {
+    public void Init(Vector3 targetPosition, int damage, float shotSpeed) {
         direction = (targetPosition - transform.position).normalized;
         this.damage = damage;
+        this.speed = shotSpeed;
         Destroy(gameObject, lifetime);
     }
 

@@ -15,7 +15,7 @@ public class ShopButton : MonoBehaviour {
         button = GetComponent<Button>();
         // Lambda: igual que en Java, pero con => en vez de ->
         button.onClick.AddListener(() => TowerPlacer.Instance.StartPlacing(towerPrefab));
-        label.text = $"{towerPrefab.name}\n{towerPrefab.Cost}";
+        label.text = $"{towerPrefab.TowerName}\n{towerPrefab.Cost}";
     }
 
     private void Update() {
