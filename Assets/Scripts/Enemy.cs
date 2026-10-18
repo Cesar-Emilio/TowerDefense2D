@@ -47,24 +47,32 @@ public class Enemy : MonoBehaviour {
 
         health -= amount;
         if (health <= 0)
-            Die();
+            Die(-health);
     }
 
-    private void Die() {
+    private void Die(int extraDamage) {
         GameManager.Instance.AddMoney(data.reward);
-        if (data.child != null) {
+
+
+        if (data.child != null && data.childCount > 0) {
+            int damageToChilds = extraDamage / data.childCount;
+
             Vector3 lastTarget = EnemyPath.Instance.GetWaypoint(targetIndex - 1);
             Vector3 direction = (lastTarget - transform.position).normalized;
             for (int i = 0; i < data.childCount; i++) {
                 float positionDelay = (float) i * 0.3f;
 
 
-                EnemyFactory.Instance.Spawn(
+                Enemy child = EnemyFactory.Instance.Spawn(
                     data.child,
                     transform.position + direction * positionDelay,
                     targetIndex,
                     DistanceTravelled - positionDelay
                 );
+
+                if (damageToChilds > 0) {
+                    child.TakeDamage(damageToChilds);
+                }
             }
         }
         RemoveFromGame();
