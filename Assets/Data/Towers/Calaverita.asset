@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fc84025d1a09c4ea8af41cb02d3719, type: 3}
+  m_Name: Calaverita
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  towerName: "Calaverita Ca\xF1onera"
+  cost: 350
+  radius: 0.35
+  stats:
+    damage: 1
+    range: 3.5
+    explosionRadius: 1
+    shotSpeed: 7
+    rateOfFire: 0.7
+    pierce: 1
+    seesCamo: 0
+  paths:
+  - pathName: "P\xF3lvora"
+    upgrades:
+    - upgradeName: "P\xF3lvora extra"
+      upgradeCost: 200
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0.4
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      description: "Explosiones m\xE1s grandes."
+    - upgradeName: Calaveras pesadas
+      upgradeCost: 350
+      bonusDamage: 1
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      description: "Cada calavera pega m\xE1s fuerte."
+    - upgradeName: Gran estallido
+      upgradeCost: 850
+      bonusDamage: 2
+      bonusRange: 0
+      bonusExplosionRadius: 0.6
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      description: "El pante\xF3n entero retumba."
+  - pathName: Mecha
+    upgrades:
+    - upgradeName: Mecha corta
+      upgradeCost: 180
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0.3
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      description: "Recarga m\xE1s r\xE1pido."
+    - upgradeName: "Ca\xF1\xF3n largo"
+      upgradeCost: 300
+      bonusDamage: 0
+      bonusRange: 1
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 3
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      description: "Dispara m\xE1s lejos y m\xE1s r\xE1pido."
+    - upgradeName: "Doble ca\xF1\xF3n"
+      upgradeCost: 800
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 1
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      description: Dos calaveras por cada una.

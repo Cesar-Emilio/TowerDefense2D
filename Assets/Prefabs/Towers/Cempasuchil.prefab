@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2992650700706585139
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361787428662975842, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755259120902431436, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755259120902431436, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117569187643915654, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_Name
+      value: Cempasuchil
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3248403657618861711, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9117569187643915654, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8348657650775133084}
+  m_SourcePrefab: {fileID: 100100000, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+--- !u!212 &6001190277483571552 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8845216135644132179, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+  m_PrefabInstance: {fileID: 2992650700706585139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6269040550196766645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9117569187643915654, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+  m_PrefabInstance: {fileID: 2992650700706585139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8348657650775133084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6269040550196766645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27a0c5fb575a054bb2d3515f1f3d484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CempasuchilTower
+  rangeIndicator: {fileID: 6001190277483571552}
+  sellRatio: 0.4
+  data: {fileID: 11400000, guid: 2c9ee2d9ed945534ba13850c7bdc4ee5, type: 2}
+  pulsePrefab: {fileID: 205417065621127712, guid: 4eed2a55c58411648bb60001a6c61651, type: 3}

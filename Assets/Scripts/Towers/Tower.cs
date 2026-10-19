@@ -109,10 +109,13 @@ public abstract class Tower : MonoBehaviour
         current = new TowerStats{
             damage = data.stats.damage,
             range = data.stats.range,
+            explosionRadius = data.stats.explosionRadius,
             shotSpeed = data.stats.shotSpeed,
             rateOfFire = data.stats.rateOfFire,
             pierce = data.stats.pierce,
-            seesCamo = data.stats.seesCamo
+            seesCamo = data.stats.seesCamo,
+            slowStrength = data.stats.slowStrength,
+            slowDuration = data.stats.slowDuration
         };
 
         // 2. Colocar las mejoras
@@ -128,10 +131,13 @@ public abstract class Tower : MonoBehaviour
     private void ApplyUpgrade(TowerStats stats, UpgradeData upgrade) {
         stats.damage += upgrade.bonusDamage;
         stats.range += upgrade.bonusRange;
+        stats.explosionRadius += upgrade.bonusExplosionRadius;
         stats.shotSpeed += upgrade.bonusShotSpeed;
         stats.rateOfFire = stats.rateOfFire + upgrade.fireRateMultiplier * stats.rateOfFire;
         stats.pierce += upgrade.bonusPierce;
         stats.seesCamo = stats.seesCamo ? stats.seesCamo : upgrade.grantsCamoDetection;
+        stats.slowStrength += upgrade.bonusSlowStrength;
+        stats.slowDuration += upgrade.bonusSlowDuration;
     }
 
     public bool CanUpgrade(int pathIndex) {

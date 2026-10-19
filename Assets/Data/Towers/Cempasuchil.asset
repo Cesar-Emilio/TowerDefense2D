@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fc84025d1a09c4ea8af41cb02d3719, type: 3}
+  m_Name: Cempasuchil
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  towerName: "Cempas\xFAchil"
+  cost: 250
+  radius: 0.35
+  stats:
+    damage: 0
+    range: 2.5
+    explosionRadius: 0
+    shotSpeed: 0
+    rateOfFire: 0.5
+    pierce: 0
+    seesCamo: 0
+    slowStrength: 0.35
+    slowDuration: 1.5
+  paths:
+  - pathName: Aroma
+    upgrades:
+    - upgradeName: Aroma intenso
+      upgradeCost: 150
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0.15
+      bonusSlowDuration: 0
+      description: "Su aroma pesa m\xE1s."
+    - upgradeName: "P\xE9talos pegajosos"
+      upgradeCost: 300
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 1
+      description: Los fantasmas tardan en soltarse.
+    - upgradeName: "Ra\xEDces del m\xE1s all\xE1"
+      upgradeCost: 700
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0.3
+      bonusSlowDuration: 0
+      description: "Casi nadie escapa de sus ra\xEDces."
+  - pathName: "Floraci\xF3n"
+    upgrades:
+    - upgradeName: "Ra\xEDces largas"
+      upgradeCost: 150
+      bonusDamage: 0
+      bonusRange: 0.8
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      description: "Florece m\xE1s lejos."
+    - upgradeName: "P\xE9talos espinosos"
+      upgradeCost: 350
+      bonusDamage: 1
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      description: "Sus p\xE9talos cortan."
+    - upgradeName: Flor eterna
+      upgradeCost: 750
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 1
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      description: Florece el doble de seguido.

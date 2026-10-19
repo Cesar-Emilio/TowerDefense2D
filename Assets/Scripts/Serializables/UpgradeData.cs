@@ -8,10 +8,13 @@ public class UpgradeData {
 
     public int bonusDamage;
     public float bonusRange;
+    public float bonusExplosionRadius;
     public float bonusShotSpeed;
     public float fireRateMultiplier;
     public int bonusPierce;
     public bool grantsCamoDetection;
+    public float bonusSlowStrength; // 0.15 = +15 % de lentitud
+    public float bonusSlowDuration; // segundos
 
     [TextArea]
     public string description;
@@ -23,10 +26,13 @@ public class UpgradeData {
 
         if (bonusDamage != 0) nonzero.Add($"{bonusDamage:+0;-0} de daño");
         if (bonusRange != 0) nonzero.Add($"{bonusRange:+0.#;-0.#} de rango");
+        if (bonusExplosionRadius != 0) nonzero.Add($"{bonusExplosionRadius:+0.#;-0.#} de rango de explosión");
         if (bonusShotSpeed != 0) nonzero.Add($"{bonusShotSpeed:+0.#;-0.#} de velocidad de disparo");
         if (fireRateMultiplier != 0) nonzero.Add($"{fireRateMultiplier * 100:+0;-0} % de cadencia");
         if (bonusPierce != 0) nonzero.Add($"{bonusPierce:+0;-0} de perforación");
         if (grantsCamoDetection) nonzero.Add("Ve camuflados");
+        if (bonusSlowStrength != 0) nonzero.Add($"{bonusSlowStrength * 100:+0;-0} % de lentitud");
+        if (bonusSlowDuration != 0) nonzero.Add($"{bonusSlowDuration:+0.#;-0.#} s de lentitud");
 
         return string.Join("\n", nonzero);
     }
