@@ -8,6 +8,7 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] private SpriteRenderer rangeIndicator;
     [SerializeField, Range(0f, 1f)] private float sellRatio = 0.4f;
     [SerializeField] private TowerData data;
+    [SerializeField] private Color scaredTint = new Color(0.7f, 0.4f, 1f); // morado mientras está aterrorizada
 
     protected TargetMode targetMode = TargetMode.First; 
     protected int[] levels;
@@ -25,6 +26,10 @@ public abstract class Tower : MonoBehaviour
 
 
     private float cooldown;
+    private SpriteRenderer body;
+    private Color bodyColor;
+
+    public bool IsScared { get; private set; }
 
     //En caso de sobreescribir el awake en una clase hija, llamar a base.Awake() primero
     protected virtual void Awake() {
@@ -33,6 +38,12 @@ public abstract class Tower : MonoBehaviour
         RecalculateStats();
         TotalSpent = data.cost;
         ShowRange(false);
+
+        Transform bodyTransform = transform.Find("Body");
+        if (bodyTransform != null) {
+            body = bodyTransform.GetComponent<SpriteRenderer>();
+            bodyColor = body.color;
+        }
     }
 
     private void Start() => All.Add(this);
@@ -43,7 +54,11 @@ public abstract class Tower : MonoBehaviour
 
     protected virtual void Update()
     {
-        cooldown -= Time.deltaTime;
+        // El terror no es una mejora sino un estado de cada frame: frena el cooldown, no las stats
+        float terror = GetTerrorMultiplier();
+        SetScared(terror < 1f);
+
+        cooldown -= Time.deltaTime * terror;
         if (cooldown > 0f) return;
 
         Enemy target = FindTarget();
@@ -53,11 +68,34 @@ public abstract class Tower : MonoBehaviour
         cooldown = 1f / current.rateOfFire;
     }
 
+    // Varias Banshees no se acumulan: se usa el aura más fuerte que alcance a la torre
+    private float GetTerrorMultiplier() {
+        float multiplier = 1f;
+        foreach (Enemy enemy in Enemy.Active) {
+            EnemyData enemyData = enemy.Data;
+            if (enemyData.terrorRadius <= 0f) continue;
+
+            if (Vector2.Distance(transform.position, enemy.transform.position) <= enemyData.terrorRadius)
+                multiplier = Mathf.Min(multiplier, enemyData.terrorMultiplier);
+        }
+        return multiplier;
+    }
+
+    private void SetScared(bool scared) {
+        if (scared == IsScared) return;
+        IsScared = scared;
+        if (body != null) body.color = scared ? Color.Lerp(bodyColor, scaredTint, 0.6f) : bodyColor;
+    }
+
     private Enemy FindTarget()
     {
         Enemy best = null;
         foreach (Enemy enemy in Enemy.Active)
         {
+            // Sin detección no se puede apuntar a un camuflado. Las explosiones y pulsos en área
+            // sí les hacen efecto si los alcanzan (como en BTD6).
+            if (enemy.IsCamo && !current.seesCamo) continue;
+
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
             if (distance > current.range) continue;
 

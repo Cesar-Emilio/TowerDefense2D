@@ -19,6 +19,7 @@ public class TowerPlacer : MonoBehaviour {
 
     public void StartPlacing(Tower towerPrefab) {
         CancelPlacing();
+        if (GameSpeed.IsPaused || GameManager.Instance.IsGameOver) return;
         if (GameManager.Instance.Money < towerPrefab.Cost) return;
 
         prefab = towerPrefab;
@@ -35,8 +36,14 @@ public class TowerPlacer : MonoBehaviour {
 
     private void Update() {
         if (!IsPlacing) return;
+        if (GameSpeed.IsPaused) return;
+        if (GameManager.Instance.IsGameOver) {
+            CancelPlacing();
+            return;
+        }
 
-        if (Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame) {
+        // Esc lo maneja GameSpeed (decide entre cancelar, deseleccionar o pausar)
+        if (Mouse.current.rightButton.wasPressedThisFrame) {
             CancelPlacing();
             return;
         }

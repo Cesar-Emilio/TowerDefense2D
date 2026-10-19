@@ -17,8 +17,15 @@ MonoBehaviour:
     count: 15
     interval: 0.6
     startDelay: 0
+    camo: 0
   - enemy: {fileID: 11400000, guid: 51b9e8df3a9aa5245809edcb09d21d5f, type: 2}
     count: 8
     interval: 1.2
     startDelay: 2
+    camo: 0
+  - enemy: {fileID: 11400000, guid: b9371f47b2bf6224eb5b929c5bb4ebc5, type: 2}
+    count: 8
+    interval: 0.8
+    startDelay: 6
+    camo: 1
   completionBonus: 160

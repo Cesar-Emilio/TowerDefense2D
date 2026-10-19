@@ -39,7 +39,7 @@ public class WaveManager : MonoBehaviour
 
         for (int i = 0; i < group.count; i++)
         {
-            EnemyFactory.Instance.Spawn(group.enemy, EnemyPath.Instance.GetWaypoint(0), 1, 0f);
+            EnemyFactory.Instance.Spawn(group.enemy, EnemyPath.Instance.GetWaypoint(0), 1, 0f, group.camo);
             yield return new WaitForSeconds(group.interval);
         }
 

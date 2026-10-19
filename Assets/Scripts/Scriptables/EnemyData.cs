@@ -14,4 +14,8 @@ public class EnemyData : ScriptableObject {
     [Header("On death")]
     public EnemyData child; // Null = no drops
     public int childCount = 1;
+
+    [Header("Terror (0 = sin aura)")]
+    public float terrorRadius = 0f;
+    [Range(0f, 1f)] public float terrorMultiplier = 1f; // 0.6 = las torres en el aura disparan al 60 %
 }

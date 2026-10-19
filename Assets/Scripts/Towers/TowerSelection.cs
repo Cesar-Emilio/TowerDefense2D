@@ -14,9 +14,8 @@ public class TowerSelection : MonoBehaviour {
     }
 
     private void Update() {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame && !TowerPlacer.Instance.IsPlacing) {
-            Deselect();
-        }
+        // Esc lo maneja GameSpeed. En pausa o al terminar la partida no se selecciona nada.
+        if (GameSpeed.IsPaused || GameManager.Instance.IsGameOver) return;
 
         // Si no se dio click, ya se está colocando algo o el mouse está sobre UI no se hace nada
         if (
