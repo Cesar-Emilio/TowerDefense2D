@@ -14,11 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   groups:
   - enemy: {fileID: 11400000, guid: 7b6a6b0cf9658324989b0e33fa5963e5, type: 2}
-    count: 20
-    interval: 0.5
+    count: 25
+    interval: 0.4
     startDelay: 0
+    camo: 0
   - enemy: {fileID: 11400000, guid: b0a304a1f00725f4ab0a7d0d957ef8c8, type: 2}
-    count: 4
-    interval: 2.5
+    count: 6
+    interval: 2
     startDelay: 4
+    camo: 0
+  - enemy: {fileID: 11400000, guid: b9371f47b2bf6224eb5b929c5bb4ebc5, type: 2}
+    count: 10
+    interval: 0.6
+    startDelay: 10
+    camo: 0
   completionBonus: 150

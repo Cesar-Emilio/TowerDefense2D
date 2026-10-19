@@ -28,6 +28,7 @@ public abstract class Tower : MonoBehaviour
     private float cooldown;
     private SpriteRenderer body;
     private Color bodyColor;
+    private Vector3 bodyScale; // se guarda una vez: si dos animaciones se encimaran, no crecería para siempre
 
     public bool IsScared { get; private set; }
 
@@ -43,10 +44,29 @@ public abstract class Tower : MonoBehaviour
         if (bodyTransform != null) {
             body = bodyTransform.GetComponent<SpriteRenderer>();
             bodyColor = body.color;
+            bodyScale = bodyTransform.localScale;
         }
     }
 
-    private void Start() => All.Add(this);
+    private void Start() {
+        All.Add(this);
+        StartCoroutine(Punch()); // pequeña animación al colocarla
+    }
+
+    // Escala el Body 1 → 1.2 → 1. Solo el Body: si se escalara la raíz también crecería el indicador de rango.
+    private System.Collections.IEnumerator Punch() {
+        if (body == null) yield break;
+
+        Transform bodyTransform = body.transform;
+        const float duration = 0.15f;
+
+        for (float t = 0f; t < duration; t += Time.deltaTime) {
+            float bump = Mathf.Sin(t / duration * Mathf.PI) * 0.2f;
+            bodyTransform.localScale = bodyScale * (1f + bump);
+            yield return null;
+        }
+        bodyTransform.localScale = bodyScale;
+    }
     private void OnDestroy() => All.Remove(this);
 
     public void ShowRange(bool show) => rangeIndicator.gameObject.SetActive(show);
@@ -205,6 +225,7 @@ public abstract class Tower : MonoBehaviour
         levels[pathIndex]++;
         TotalSpent += upgrade.upgradeCost;
         RecalculateStats();
+        StartCoroutine(Punch());
         return true;
     }
 

@@ -9,7 +9,7 @@ public class EnemyFactory : MonoBehaviour {
         Instance = this;
     }
 
-    public Enemy Spawn(EnemyData enemy, Vector3 pos, int waypoint, float distance, bool camo = false) {
+    public Enemy Spawn(EnemyData enemy, Vector3 pos, int waypoint, float distance, bool camo = false, bool givesReward = true) {
         Enemy spawned = Instantiate(
             prefab,
             pos,
@@ -20,7 +20,8 @@ public class EnemyFactory : MonoBehaviour {
             enemy,
             waypoint,
             distance,
-            camo
+            camo,
+            givesReward
         );
 
         return spawned;

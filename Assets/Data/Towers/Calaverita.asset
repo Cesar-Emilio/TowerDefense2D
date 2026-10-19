@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Calaverita
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   towerName: "Calaverita Ca\xF1onera"
-  cost: 350
+  cost: 375
   radius: 0.35
   stats:
     damage: 1
@@ -23,6 +23,8 @@ MonoBehaviour:
     rateOfFire: 0.7
     pierce: 1
     seesCamo: 0
+    slowStrength: 0
+    slowDuration: 0
   paths:
   - pathName: "P\xF3lvora"
     upgrades:
@@ -35,6 +37,8 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Explosiones m\xE1s grandes."
     - upgradeName: Calaveras pesadas
       upgradeCost: 350
@@ -45,6 +49,8 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Cada calavera pega m\xE1s fuerte."
     - upgradeName: Gran estallido
       upgradeCost: 850
@@ -55,6 +61,8 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "El pante\xF3n entero retumba."
   - pathName: Mecha
     upgrades:
@@ -67,6 +75,8 @@ MonoBehaviour:
       fireRateMultiplier: 0.3
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Recarga m\xE1s r\xE1pido."
     - upgradeName: "Ca\xF1\xF3n largo"
       upgradeCost: 300
@@ -77,6 +87,8 @@ MonoBehaviour:
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Dispara m\xE1s lejos y m\xE1s r\xE1pido."
     - upgradeName: "Doble ca\xF1\xF3n"
       upgradeCost: 800
@@ -87,4 +99,6 @@ MonoBehaviour:
       fireRateMultiplier: 1
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: Dos calaveras por cada una.

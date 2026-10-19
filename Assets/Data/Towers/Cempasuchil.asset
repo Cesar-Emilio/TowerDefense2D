@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cempasuchil
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   towerName: "Cempas\xFAchil"
-  cost: 250
+  cost: 275
   radius: 0.35
   stats:
     damage: 0

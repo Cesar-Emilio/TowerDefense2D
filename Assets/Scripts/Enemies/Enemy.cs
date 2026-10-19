@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField, Range(0f, 1f)] private float maxSlowStrength = 0.9f;  // nunca se detiene por completo
     [SerializeField, Range(0f, 1f)] private float camoAlpha = 0.4f;        // camuflados: semitransparentes
     [SerializeField] private Color terrorAuraColor = new Color(0.6f, 0.2f, 0.8f, 0.15f);
+    [SerializeField] private float hitFlashDuration = 0.06f;
+    [SerializeField] private Color rewardTextColor = new Color(1f, 0.85f, 0.3f);
 
     private int targetIndex = 1;
     private int health;
@@ -20,17 +22,23 @@ public class Enemy : MonoBehaviour {
     private Color baseColor; // color de los datos, con el alfa del camuflaje ya aplicado
     private float slowMultiplier = 1f; // 1 = velocidad normal
     private float slowTimer;
+    private float flashTimer;
+    private float summonTimer;
 
     public float DistanceTravelled { get; private set; }
     public EnemyData Data => data;
     public bool IsCamo { get; private set; }
+    public bool GivesReward { get; private set; } // los invocados por el jefe no dan dinero
+    public int Health => health;
 
-    public void Setup(EnemyData data, int targetIndex, float distanceTravelled, bool camo = false) {
+    public void Setup(EnemyData data, int targetIndex, float distanceTravelled, bool camo = false, bool givesReward = true) {
         this.data = data;
         this.health = data.maxHealth;
         this.targetIndex = targetIndex;
         DistanceTravelled = distanceTravelled;
         IsCamo = camo;
+        GivesReward = givesReward;
+        summonTimer = data.summonInterval;
 
         baseColor = data.color;
         if (camo) baseColor.a = camoAlpha;
@@ -63,19 +71,23 @@ public class Enemy : MonoBehaviour {
         float multiplier = 1f - Mathf.Clamp(strength, 0f, maxSlowStrength);
         slowMultiplier = Mathf.Min(slowMultiplier, multiplier);
         slowTimer = Mathf.Max(slowTimer, duration);
-        Color slowed = Color.Lerp(baseColor, slowTint, 0.5f);
-        slowed.a = baseColor.a; // un camuflado lento sigue viéndose camuflado
-        spriteRenderer.color = slowed;
     }
 
-    private void UpdateSlow() {
-        if (slowTimer <= 0f) return;
-
-        slowTimer -= Time.deltaTime;
-        if (slowTimer <= 0f) {
-            slowMultiplier = 1f;
-            spriteRenderer.color = baseColor;
+    private void UpdateTimers() {
+        if (slowTimer > 0f) {
+            slowTimer -= Time.deltaTime;
+            if (slowTimer <= 0f) slowMultiplier = 1f;
         }
+        if (flashTimer > 0f) flashTimer -= Time.deltaTime;
+    }
+
+    // Un solo lugar decide el color: destello > lento > normal. El alfa del camuflaje siempre se respeta.
+    private void RefreshColor() {
+        Color color = baseColor;
+        if (slowTimer > 0f) color = Color.Lerp(baseColor, slowTint, 0.5f);
+        if (flashTimer > 0f) color = Color.white;
+        color.a = baseColor.a;
+        spriteRenderer.color = color;
     }
 
     private void OnEnable() => Active.Add(this);
@@ -83,7 +95,9 @@ public class Enemy : MonoBehaviour {
 
     private void Update()
     {
-        UpdateSlow();
+        UpdateTimers();
+        RefreshColor();
+        UpdateSummon();
 
         Vector3 target = EnemyPath.Instance.GetWaypoint(targetIndex);
         Vector3 before = transform.position;
@@ -93,50 +107,72 @@ public class Enemy : MonoBehaviour {
 
         if (transform.position == target) {
             targetIndex++;
-            if (targetIndex >= EnemyPath.Instance.Count) 
+            if (targetIndex >= EnemyPath.Instance.Count)
                 ReachEnd();
         }
+    }
+
+    // El jefe invoca enemigos a su alrededor cada cierto tiempo (no dan dinero)
+    private void UpdateSummon() {
+        if (data.summon == null || data.summonCount <= 0 || data.summonInterval <= 0f) return;
+
+        summonTimer -= Time.deltaTime;
+        if (summonTimer > 0f) return;
+        summonTimer = data.summonInterval;
+
+        // Empiezan una separación atrás para no aparecer encima del jefe
+        SpawnBehind(data.summon, data.summonCount, 0.4f, 0.4f, 0, false);
     }
 
     public void TakeDamage(int amount) {
         if (isDead) return;
 
         health -= amount;
+        flashTimer = hitFlashDuration;
         if (health <= 0)
             Die(-health);
     }
 
     private void Die(int extraDamage) {
-        GameManager.Instance.AddMoney(data.reward);
-
+        if (GivesReward) {
+            GameManager.Instance.AddMoney(data.reward);
+            FloatingText.Spawn($"+{data.reward}", transform.position, rewardTextColor);
+        }
+        FadeAndGrow.Spawn(spriteRenderer, transform.position, baseColor, data.size);
+        if (data.isBoss) CameraShake.Shake(0.4f, 0.25f);
 
         if (data.child != null && data.childCount > 0) {
+            // El daño sobrante se reparte entre los hijos (el residuo se pierde)
             int damageToChilds = extraDamage / data.childCount;
-
-            Vector3 lastTarget = EnemyPath.Instance.GetWaypoint(targetIndex - 1);
-            Vector3 direction = (lastTarget - transform.position).normalized;
-            for (int i = 0; i < data.childCount; i++) {
-                float positionDelay = (float) i * 0.3f;
-
-
-                Enemy child = EnemyFactory.Instance.Spawn(
-                    data.child,
-                    transform.position + direction * positionDelay,
-                    targetIndex,
-                    DistanceTravelled - positionDelay,
-                    IsCamo // los hijos de un camuflado también salen camuflados
-                );
-
-                if (damageToChilds > 0) {
-                    child.TakeDamage(damageToChilds);
-                }
-            }
+            SpawnBehind(data.child, data.childCount, 0.3f, 0f, damageToChilds, GivesReward);
         }
         RemoveFromGame();
     }
 
+    // Crea enemigos sobre el camino, un poco detrás de este, con su mismo avance.
+    // Los hijos de un camuflado también salen camuflados.
+    private void SpawnBehind(EnemyData type, int count, float spacing, float firstOffset, int damage, bool givesReward) {
+        Vector3 lastTarget = EnemyPath.Instance.GetWaypoint(targetIndex - 1);
+        Vector3 direction = (lastTarget - transform.position).normalized;
+
+        for (int i = 0; i < count; i++) {
+            float positionDelay = firstOffset + i * spacing;
+
+            Enemy spawned = EnemyFactory.Instance.Spawn(
+                type,
+                transform.position + direction * positionDelay,
+                targetIndex,
+                DistanceTravelled - positionDelay,
+                IsCamo,
+                givesReward
+            );
+
+            if (damage > 0) spawned.TakeDamage(damage);
+        }
+    }
+
     private void ReachEnd() {
-        GameManager.Instance.LoseLife(1);
+        GameManager.Instance.LoseLife(data.livesCost);
         RemoveFromGame();
     }
 

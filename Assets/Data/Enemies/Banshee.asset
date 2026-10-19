@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: Banshee
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   displayName: Banshee
-  maxHealth: 6
-  speed: 1.6
-  reward: 6
+  maxHealth: 10
+  speed: 1.7
+  reward: 5
   color: {r: 0.85, g: 0.8, b: 1, a: 1}
   size: 0.6
   child: {fileID: 0}
   childCount: 0
+  livesCost: 1
+  isBoss: 0
+  summon: {fileID: 0}
+  summonCount: 0
+  summonInterval: 0
   terrorRadius: 2.5
   terrorMultiplier: 0.6

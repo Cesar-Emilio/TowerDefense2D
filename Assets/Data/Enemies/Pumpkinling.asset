@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Pumpkinling
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   displayName: Pumpkinling
-  maxHealth: 3
-  speed: 1.8
-  reward: 3
+  maxHealth: 4
+  speed: 1.9
+  reward: 2
   color: {r: 1, g: 0.77109337, b: 0.3726415, a: 1}
   size: 0.5
   child: {fileID: 0}
   childCount: 1
+  livesCost: 1
+  isBoss: 0
+  summon: {fileID: 0}
+  summonCount: 0
+  summonInterval: 0
+  terrorRadius: 0
+  terrorMultiplier: 1

@@ -53,6 +53,7 @@ public class Bomb : MonoBehaviour
             // El círculo mide 1 de diámetro, igual que el indicador de rango
             explosion.transform.localScale = Vector3.one * explosionRadius * 2f;
         }
+        CameraShake.Shake(0.1f, 0.06f);
 
         Destroy(gameObject);
     }

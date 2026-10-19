@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Catrina
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   towerName: Catrina
-  cost: 200
+  cost: 220
   radius: 0.35
   stats:
     damage: 1
     range: 3
+    explosionRadius: 0
     shotSpeed: 12
     rateOfFire: 1.4
     pierce: 1
     seesCamo: 0
+    slowStrength: 0
+    slowDuration: 0
   paths:
   - pathName: Mirada
     upgrades:
@@ -29,28 +32,37 @@ MonoBehaviour:
       upgradeCost: 120
       bonusDamage: 0
       bonusRange: 1
+      bonusExplosionRadius: 0
       bonusShotSpeed: 0
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Cuencas bien abiertas: ve m\xE1s lejos."
     - upgradeName: "Mirada del m\xE1s all\xE1"
       upgradeCost: 250
       bonusDamage: 0
       bonusRange: 0.5
+      bonusExplosionRadius: 0
       bonusShotSpeed: 0
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 1
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Ve a los esp\xEDritus que se esconden."
     - upgradeName: Catrina certera
       upgradeCost: 650
       bonusDamage: 2
       bonusRange: 1.5
+      bonusExplosionRadius: 0
       bonusShotSpeed: 8
       fireRateMultiplier: 0
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Cada p\xE9talo encuentra su alma."
   - pathName: Ritmo
     upgrades:
@@ -58,26 +70,35 @@ MonoBehaviour:
       upgradeCost: 160
       bonusDamage: 0
       bonusRange: 0
+      bonusExplosionRadius: 0
       bonusShotSpeed: 0
       fireRateMultiplier: 0.3
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Abanica m\xE1s r\xE1pido."
     - upgradeName: "P\xE9talos afilados"
       upgradeCost: 300
       bonusDamage: 0
       bonusRange: 0
+      bonusExplosionRadius: 0
       bonusShotSpeed: 0
       fireRateMultiplier: 0
       bonusPierce: 2
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Sus p\xE9talos atraviesan a varios fantasmas."
     - upgradeName: Lluvia de flores
       upgradeCost: 900
       bonusDamage: 1
       bonusRange: 0
+      bonusExplosionRadius: 0
       bonusShotSpeed: 0
       fireRateMultiplier: 1
       bonusPierce: 0
       grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
       description: "Una tormenta de cempas\xFAchil."

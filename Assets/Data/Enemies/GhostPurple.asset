@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   displayName: Ghost
   maxHealth: 1
-  speed: 3.2
+  speed: 3.5
   reward: 1
   color: {r: 0.6437532, g: 0, b: 1, a: 1}
   size: 0.5
   child: {fileID: 11400000, guid: b9371f47b2bf6224eb5b929c5bb4ebc5, type: 2}
   childCount: 1
+  livesCost: 1
+  isBoss: 0
+  summon: {fileID: 0}
+  summonCount: 0
+  summonInterval: 0
+  terrorRadius: 0
+  terrorMultiplier: 1
