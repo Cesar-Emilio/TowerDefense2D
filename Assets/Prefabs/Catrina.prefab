@@ -193,7 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1361787428662975842}
-  - component: {fileID: 3989079249725470417}
+  - component: {fileID: 3248403657618861711}
   m_Layer: 0
   m_Name: Catrina
   m_TagString: Untagged
@@ -218,7 +218,7 @@ Transform:
   - {fileID: 6419225713513040151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3989079249725470417
+--- !u!114 &3248403657618861711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,10 +227,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9117569187643915654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9da20dda2dba14c806b3dc7f04caa6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fb454f833fa94747b4f7adc1c076ef3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tower
-  projectilePrefab: {fileID: 6748569201623024538, guid: 2cf884998bb896f4987122ae1b6145b4, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::CatrinaTower
   rangeIndicator: {fileID: 8845216135644132179}
   sellRatio: 0.4
   data: {fileID: 11400000, guid: 485fa314f395f554688c07d18db33d8a, type: 2}
+  projectilePrefab: {fileID: 6748569201623024538, guid: 2cf884998bb896f4987122ae1b6145b4, type: 3}

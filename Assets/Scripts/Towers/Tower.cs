@@ -1,18 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public abstract class Tower : MonoBehaviour
 {
     public static readonly List<Tower> All = new List<Tower>();
 
-    [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private SpriteRenderer rangeIndicator;
     [SerializeField, Range(0f, 1f)] private float sellRatio = 0.4f;
     [SerializeField] private TowerData data;
 
-    private TargetMode targetMode = TargetMode.First; 
-    private int[] levels;
-    private TowerStats current;
+    protected TargetMode targetMode = TargetMode.First; 
+    protected int[] levels;
+    protected TowerStats current;
 
     public TowerData TowerData => data;
     public TargetMode TargetMode => targetMode;
@@ -27,7 +26,8 @@ public class Tower : MonoBehaviour
 
     private float cooldown;
 
-    private void Awake() {
+    //En caso de sobreescribir el awake en una clase hija, llamar a base.Awake() primero
+    protected virtual void Awake() {
         levels = new int[data.paths.Length];
 
         RecalculateStats();
@@ -41,7 +41,7 @@ public class Tower : MonoBehaviour
     public void ShowRange(bool show) => rangeIndicator.gameObject.SetActive(show);
     public void SetRangeColor(Color color) => rangeIndicator.color = color;
 
-    private void Update()
+    protected virtual void Update()
     {
         cooldown -= Time.deltaTime;
         if (cooldown > 0f) return;
@@ -53,7 +53,6 @@ public class Tower : MonoBehaviour
         cooldown = 1f / current.rateOfFire;
     }
 
-    // "Primero": el que lleva más distancia recorrida dentro del rango
     private Enemy FindTarget()
     {
         Enemy best = null;
@@ -68,14 +67,10 @@ public class Tower : MonoBehaviour
         return best;
     }
 
-    private void Shoot(Enemy target)
-    {
-        Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        projectile.Init(target.transform.position, current.damage, current.shotSpeed, current.pierce);
-    }
+    protected abstract void Shoot(Enemy target);
 
     // Dibuja el rango en la vista Scene cuando seleccionas la torre
-    private void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         float range = (current != null) ? current.range : data.stats.range;
         Gizmos.color = Color.cyan;

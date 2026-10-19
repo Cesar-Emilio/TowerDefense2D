@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9968b45975f9e4d8159a6d884ea645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartWaveButton
-  startKeyShortcut: 2
+  startKeyShortcut: 1
 --- !u!1 &918984367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,7 +2933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e28d319a9e20b347b58ecab575df9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopButton
-  towerPrefab: {fileID: 3989079249725470417, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+  towerPrefab: {fileID: 3248403657618861711, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
   label: {fileID: 688440919}
   shortcut: 31
 --- !u!1 &1267429645
@@ -3942,7 +3942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1850497298
 RectTransform:
   m_ObjectHideFlags: 0
