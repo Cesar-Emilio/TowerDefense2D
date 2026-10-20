@@ -49,13 +49,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5755259120902431436, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 96433049f895129469cbf607c194a10d, type: 3}
+    - target: {fileID: 5755259120902431436, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5755259120902431436, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
       propertyPath: m_Color.g
-      value: 0.65
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6098232410300350570, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098232410300350570, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094595264678282627, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: 'frames.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 96433049f895129469cbf607c194a10d, type: 3}
+    - target: {fileID: 8094595264678282627, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
+      propertyPath: 'frames.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 3129f6d5dbd798a419a1695c1a5591cc, type: 3}
     - target: {fileID: 9117569187643915654, guid: e5511fc194089a04fb113e90737fc7c3, type: 3}
       propertyPath: m_Name
       value: Cempasuchil
@@ -94,4 +114,5 @@ MonoBehaviour:
   rangeIndicator: {fileID: 6001190277483571552}
   sellRatio: 0.4
   data: {fileID: 11400000, guid: 2c9ee2d9ed945534ba13850c7bdc4ee5, type: 2}
+  scaredTint: {r: 0.7, g: 0.4, b: 1, a: 1}
   pulsePrefab: {fileID: 205417065621127712, guid: 4eed2a55c58411648bb60001a6c61651, type: 3}

@@ -15,6 +15,7 @@ MonoBehaviour:
   towerName: Catrina
   cost: 220
   radius: 0.35
+  icon: {fileID: 21300000, guid: 10db5fc73d3872048953117988b12044, type: 3}
   stats:
     damage: 1
     range: 3
@@ -25,6 +26,7 @@ MonoBehaviour:
     seesCamo: 0
     slowStrength: 0
     slowDuration: 0
+    income: 0
   paths:
   - pathName: Mirada
     upgrades:
@@ -39,6 +41,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Cuencas bien abiertas: ve m\xE1s lejos."
     - upgradeName: "Mirada del m\xE1s all\xE1"
       upgradeCost: 250
@@ -51,6 +54,7 @@ MonoBehaviour:
       grantsCamoDetection: 1
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Ve a los esp\xEDritus que se esconden."
     - upgradeName: Catrina certera
       upgradeCost: 650
@@ -63,6 +67,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Cada p\xE9talo encuentra su alma."
   - pathName: Ritmo
     upgrades:
@@ -77,6 +82,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Abanica m\xE1s r\xE1pido."
     - upgradeName: "P\xE9talos afilados"
       upgradeCost: 300
@@ -89,6 +95,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Sus p\xE9talos atraviesan a varios fantasmas."
     - upgradeName: Lluvia de flores
       upgradeCost: 900
@@ -101,4 +108,5 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Una tormenta de cempas\xFAchil."

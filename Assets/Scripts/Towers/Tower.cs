@@ -173,7 +173,8 @@ public abstract class Tower : MonoBehaviour
             pierce = data.stats.pierce,
             seesCamo = data.stats.seesCamo,
             slowStrength = data.stats.slowStrength,
-            slowDuration = data.stats.slowDuration
+            slowDuration = data.stats.slowDuration,
+            income = data.stats.income
         };
 
         // 2. Colocar las mejoras
@@ -196,6 +197,7 @@ public abstract class Tower : MonoBehaviour
         stats.seesCamo = stats.seesCamo ? stats.seesCamo : upgrade.grantsCamoDetection;
         stats.slowStrength += upgrade.bonusSlowStrength;
         stats.slowDuration += upgrade.bonusSlowDuration;
+        stats.income += upgrade.bonusIncome;
     }
 
     public bool CanUpgrade(int pathIndex) {

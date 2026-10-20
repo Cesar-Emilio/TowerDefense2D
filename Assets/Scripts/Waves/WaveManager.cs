@@ -6,6 +6,7 @@ public class WaveManager : MonoBehaviour
     public static WaveManager Instance { get; private set; }
     
     public event System.Action OnWavesChanged;
+    public event System.Action OnWaveCompleted; // al terminar cada oleada (la Ofrenda paga aquí)
 
     [SerializeField] private WaveData[] waves;
 
@@ -60,6 +61,7 @@ public class WaveManager : MonoBehaviour
         IsWaveRunning = false;
         WaveData wave = waves[CurrentWave - 1];
         GameManager.Instance.AddMoney(wave.completionBonus);
+        OnWaveCompleted?.Invoke();
 
         if (CurrentWave >= TotalWaves) GameManager.Instance.Win();
     }

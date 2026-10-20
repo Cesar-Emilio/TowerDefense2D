@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8923017158649801932}
   - component: {fileID: 3337700754554701135}
   - component: {fileID: 7283229996024320633}
+  - component: {fileID: 6039785200573340170}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -82,8 +83,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.55, b: 0, a: 0.5}
+  m_Sprite: {fileID: 21300000, guid: e3159437d1482c8478a1ba663894dd51, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,3 +107,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosionEffect
   duration: 0.2
+--- !u!114 &6039785200573340170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205417065621127712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ff187abc0bee4cb790c7b348ce130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
+  frames:
+  - {fileID: 21300000, guid: e3159437d1482c8478a1ba663894dd51, type: 3}
+  - {fileID: 21300000, guid: 44ec11a3ae07a3243b209ee3f34cb62d, type: 3}
+  - {fileID: 21300000, guid: 6d332898011354746a523d242d0f8344, type: 3}
+  - {fileID: 21300000, guid: ef90e88bec527a340b3e502ae6723005, type: 3}
+  - {fileID: 21300000, guid: 1cc9c7779c18b25469da7e1694049f7f, type: 3}
+  frameRate: 20
+  loop: 0
+  randomStart: 0

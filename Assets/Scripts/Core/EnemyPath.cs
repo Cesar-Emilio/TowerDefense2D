@@ -9,6 +9,10 @@ public class EnemyPath : MonoBehaviour
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private float width = 1f;
 
+    [Header("Pixel art (opcional)")]
+    [SerializeField] private Sprite pathTile;          // si se asigna, el camino se dibuja con tiles en vez de la línea
+    [SerializeField] private int pathSortingOrder = -5;
+
     // => es una forma corta de escribir un getter o un método de una línea
     public int Count => waypoints.Length;
     public Vector3 GetWaypoint(int index) => waypoints[index].position;
@@ -27,6 +31,34 @@ public class EnemyPath : MonoBehaviour
         
         for (int i = 0; i < waypoints.Length; i++)
             line.SetPosition(i, waypoints[i].position);
+
+        if (pathTile != null) {
+            line.enabled = false;
+            DrawTiles(line.sharedMaterial);
+        }
+    }
+
+    // Un SpriteRenderer en modo Tiled por tramo: el tile se repite a lo largo del tramo.
+    // Cada tramo se alarga medio ancho en cada punta para que las esquinas queden cubiertas.
+    private void DrawTiles(Material material) {
+        for (int i = 0; i < waypoints.Length - 1; i++) {
+            Vector3 a = waypoints[i].position;
+            Vector3 b = waypoints[i + 1].position;
+            Vector3 delta = b - a;
+            bool horizontal = Mathf.Abs(delta.x) >= Mathf.Abs(delta.y);
+            float length = delta.magnitude + width;
+
+            GameObject segment = new GameObject($"PathTile {i}");
+            segment.transform.SetParent(transform, false);
+            segment.transform.position = (a + b) / 2f;
+
+            SpriteRenderer tiles = segment.AddComponent<SpriteRenderer>();
+            tiles.sprite = pathTile;
+            if (material != null) tiles.sharedMaterial = material;
+            tiles.drawMode = SpriteDrawMode.Tiled;
+            tiles.size = horizontal ? new Vector2(length, width) : new Vector2(width, length);
+            tiles.sortingOrder = pathSortingOrder;
+        }
     }
 
     private void OnDrawGizmos() {

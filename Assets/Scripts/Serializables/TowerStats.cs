@@ -11,4 +11,5 @@ public class TowerStats {
     public bool seesCamo;
     public float slowStrength; // 0.35 = los enemigos van al 65 % de su velocidad
     public float slowDuration; // segundos
+    public int income;         // pan de muerto al terminar cada oleada (Ofrenda)
 }

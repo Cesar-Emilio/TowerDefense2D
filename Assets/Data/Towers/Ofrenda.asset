@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fc84025d1a09c4ea8af41cb02d3719, type: 3}
+  m_Name: Ofrenda
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  towerName: Altar de ofrendas
+  cost: 450
+  radius: 0.35
+  icon: {fileID: 21300000, guid: fcba5dca664fcfd43b18ce02e02cfd7b, type: 3}
+  stats:
+    damage: 0
+    range: 1.2
+    explosionRadius: 0
+    shotSpeed: 0
+    rateOfFire: 1
+    pierce: 0
+    seesCamo: 0
+    slowStrength: 0
+    slowDuration: 0
+    income: 50
+  paths:
+  - pathName: Pan dulce
+    upgrades:
+    - upgradeName: Conchas
+      upgradeCost: 250
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      bonusIncome: 30
+      description: "M\xE1s pan para los visitantes."
+    - upgradeName: Pan de muerto
+      upgradeCost: 500
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      bonusIncome: 50
+      description: El favorito de los difuntos.
+    - upgradeName: Gran ofrenda
+      upgradeCost: 1000
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      bonusIncome: 120
+      description: Una ofrenda de siete niveles.
+  - pathName: Velas
+    upgrades:
+    - upgradeName: Veladoras
+      upgradeCost: 200
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      bonusIncome: 20
+      description: Iluminan el camino a casa.
+    - upgradeName: Copal
+      upgradeCost: 400
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      bonusIncome: 40
+      description: El aroma atrae a las almas.
+    - upgradeName: Luz eterna
+      upgradeCost: 900
+      bonusDamage: 0
+      bonusRange: 0
+      bonusExplosionRadius: 0
+      bonusShotSpeed: 0
+      fireRateMultiplier: 0
+      bonusPierce: 0
+      grantsCamoDetection: 0
+      bonusSlowStrength: 0
+      bonusSlowDuration: 0
+      bonusIncome: 90
+      description: Nunca se apaga.

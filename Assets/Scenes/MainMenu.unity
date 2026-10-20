@@ -205,6 +205,7 @@ MonoBehaviour:
   mapsContainer: {fileID: 1655381141}
   maps:
   - {fileID: 11400000, guid: 38ecdb881c8c40f4caf7334c320972eb, type: 2}
+  - {fileID: 11400000, guid: fd51e9af8c58dc14fb62ef147b36415d, type: 2}
 --- !u!4 &213097468
 Transform:
   m_ObjectHideFlags: 0
@@ -339,7 +340,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 0.16, g: 0.09, b: 0.2, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -476,7 +477,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 0.16, g: 0.09, b: 0.2, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -613,7 +614,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 0.16, g: 0.09, b: 0.2, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -798,7 +799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 9ef99990866959c408da910fac9d1c5c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -931,7 +932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 9ef99990866959c408da910fac9d1c5c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1356,7 +1357,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.12, g: 0.05, b: 0.18, a: 1}
+  m_BackGroundColor: {r: 0.1, g: 0.14, b: 0.1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2235,6 +2236,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: 1724877080}
   m_ActionId: 0489e84a-4833-4c40-bfae-cea84b696689
+--- !u!1 &1844278827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844278829}
+  - component: {fileID: 1844278828}
+  m_Layer: 0
+  m_Name: MapDecorator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1844278828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844278827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36de0d197e04b494387c8d4d6ed2d493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapDecorator
+  groundTile: {fileID: 21300000, guid: 61d9e09694f9198408d23e4787b244de, type: 3}
+  groundSize: {x: 26, y: 16}
+  decorations:
+  - {fileID: 21300000, guid: 0ca56c3b441a76f49910548d94688f2a, type: 3}
+  - {fileID: 21300000, guid: 0ca56c3b441a76f49910548d94688f2a, type: 3}
+  - {fileID: 21300000, guid: 42258604623d2cb47944ca6aca61664b, type: 3}
+  - {fileID: 21300000, guid: 9aee7f07e07aebf4cbdcfc03fd18872b, type: 3}
+  - {fileID: 21300000, guid: 93607eaa455e67c4e8d525ec1110e2fc, type: 3}
+  - {fileID: 21300000, guid: 4058f1be21589a6409ec9e705048e4ec, type: 3}
+  decorationCount: 30
+  seed: 3
+  decorationScale: 1
+  material: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  area:
+    serializedVersion: 2
+    x: -10.4
+    y: -5.7
+    width: 20.8
+    height: 11.4
+  pathMargin: 0.9
+  minDistance: 1.1
+--- !u!4 &1844278829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844278827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1919999701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,7 +2416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 9ef99990866959c408da910fac9d1c5c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2483,3 +2549,4 @@ SceneRoots:
   - {fileID: 2042737365}
   - {fileID: 1135888781}
   - {fileID: 213097468}
+  - {fileID: 1844278829}

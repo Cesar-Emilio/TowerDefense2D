@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
 
     public void Init(Vector3 targetPosition, int damage, float shotSpeed, int pierce) {
         direction = (targetPosition - transform.position).normalized;
+        transform.right = direction; // el sprite apunta a la derecha: así queda mirando hacia donde vuela
         this.damage = damage;
         this.speed = shotSpeed;
         pierceLeft = pierce;

@@ -7,8 +7,10 @@ public class EnemyData : ScriptableObject {
     public float speed = 2f;
     public int reward = 1;
 
-    [Header("Temporal design")]
-    public Color color = Color.white;
+    [Header("Aspecto")]
+    public Sprite[] frames;              // animación (si está vacío se usa el sprite del prefab)
+    public float frameRate = 5f;
+    public Color color = Color.white;    // con sprites, blanco = colores originales del dibujo
     public float size = 0.5f;
 
     [Header("On death")]

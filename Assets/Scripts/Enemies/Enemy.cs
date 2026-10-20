@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField, Range(0f, 1f)] private float camoAlpha = 0.4f;        // camuflados: semitransparentes
     [SerializeField] private Color terrorAuraColor = new Color(0.6f, 0.2f, 0.8f, 0.15f);
     [SerializeField] private float hitFlashDuration = 0.06f;
+    [SerializeField] private Color hitTint = new Color(1f, 0.45f, 0.45f); // rojizo: el blanco no se nota sobre un sprite
+    [SerializeField] private Sprite auraSprite; // círculo para el aura de terror (no el sprite del enemigo)
     [SerializeField] private Color rewardTextColor = new Color(1f, 0.85f, 0.3f);
 
     private int targetIndex = 1;
@@ -47,6 +49,12 @@ public class Enemy : MonoBehaviour {
         spriteRenderer.color = baseColor;
         transform.localScale = new Vector3(data.size, data.size, 1f);
 
+        if (data.frames != null && data.frames.Length > 0) {
+            SpriteAnimator animator = GetComponent<SpriteAnimator>();
+            if (animator != null) animator.Play(data.frames, data.frameRate);
+            else spriteRenderer.sprite = data.frames[0];
+        }
+
         if (data.terrorRadius > 0f) CreateTerrorAura();
     }
 
@@ -58,7 +66,7 @@ public class Enemy : MonoBehaviour {
         aura.transform.localScale = Vector3.one * (data.terrorRadius * 2f / data.size);
 
         SpriteRenderer auraRenderer = aura.AddComponent<SpriteRenderer>();
-        auraRenderer.sprite = spriteRenderer.sprite;
+        auraRenderer.sprite = auraSprite != null ? auraSprite : spriteRenderer.sprite;
         auraRenderer.sharedMaterial = spriteRenderer.sharedMaterial;
         auraRenderer.color = terrorAuraColor;
         auraRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
@@ -85,7 +93,7 @@ public class Enemy : MonoBehaviour {
     private void RefreshColor() {
         Color color = baseColor;
         if (slowTimer > 0f) color = Color.Lerp(baseColor, slowTint, 0.5f);
-        if (flashTimer > 0f) color = Color.white;
+        if (flashTimer > 0f) color = hitTint;
         color.a = baseColor.a;
         spriteRenderer.color = color;
     }
@@ -104,6 +112,10 @@ public class Enemy : MonoBehaviour {
 
         transform.position = Vector3.MoveTowards(before, target, data.speed * slowMultiplier * Time.deltaTime);
         DistanceTravelled += Vector3.Distance(before, transform.position);
+
+        // Mira hacia donde camina (en los tramos verticales conserva la última dirección)
+        float dx = transform.position.x - before.x;
+        if (Mathf.Abs(dx) > 0.0001f) spriteRenderer.flipX = dx < 0f;
 
         if (transform.position == target) {
             targetIndex++;

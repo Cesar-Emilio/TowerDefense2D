@@ -15,6 +15,7 @@ public class UpgradeData {
     public bool grantsCamoDetection;
     public float bonusSlowStrength; // 0.15 = +15 % de lentitud
     public float bonusSlowDuration; // segundos
+    public int bonusIncome;         // pan de muerto extra por oleada
 
     [TextArea]
     public string description;
@@ -33,6 +34,7 @@ public class UpgradeData {
         if (grantsCamoDetection) nonzero.Add("Ve camuflados");
         if (bonusSlowStrength != 0) nonzero.Add($"{bonusSlowStrength * 100:+0;-0} % de lentitud");
         if (bonusSlowDuration != 0) nonzero.Add($"{bonusSlowDuration:+0.#;-0.#} s de lentitud");
+        if (bonusIncome != 0) nonzero.Add($"{bonusIncome:+0;-0} de pan por oleada");
 
         return string.Join("\n", nonzero);
     }

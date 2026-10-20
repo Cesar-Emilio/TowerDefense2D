@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Button))]
 public class ShopButton : MonoBehaviour {
     [SerializeField] private TMP_Text label;
+    [SerializeField] private Image icon; // opcional: el dibujo de la torre
 
     // Los asigna TowerShop al crear el botón
     private Tower towerPrefab;
@@ -22,7 +23,15 @@ public class ShopButton : MonoBehaviour {
     public void Setup(Tower towerPrefab, Key shortcut) {
         this.towerPrefab = towerPrefab;
         this.shortcut = shortcut;
-        label.text = $"{towerPrefab.TowerName}\n{towerPrefab.Cost}";
+
+        string key = shortcut != Key.None ? $" [{shortcut}]" : "";
+        label.text = $"{towerPrefab.TowerName}{key}\n{towerPrefab.Cost}";
+
+        if (icon != null) {
+            icon.sprite = towerPrefab.TowerData.icon;
+            icon.enabled = icon.sprite != null;
+            icon.preserveAspect = true;
+        }
     }
 
     private void Update() {

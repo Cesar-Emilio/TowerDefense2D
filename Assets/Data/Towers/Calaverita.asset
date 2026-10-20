@@ -15,6 +15,7 @@ MonoBehaviour:
   towerName: "Calaverita Ca\xF1onera"
   cost: 375
   radius: 0.35
+  icon: {fileID: 21300000, guid: ddcf3b1237f3311468d00a8c211c3185, type: 3}
   stats:
     damage: 1
     range: 3.5
@@ -25,6 +26,7 @@ MonoBehaviour:
     seesCamo: 0
     slowStrength: 0
     slowDuration: 0
+    income: 0
   paths:
   - pathName: "P\xF3lvora"
     upgrades:
@@ -39,6 +41,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Explosiones m\xE1s grandes."
     - upgradeName: Calaveras pesadas
       upgradeCost: 350
@@ -51,6 +54,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Cada calavera pega m\xE1s fuerte."
     - upgradeName: Gran estallido
       upgradeCost: 850
@@ -63,6 +67,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "El pante\xF3n entero retumba."
   - pathName: Mecha
     upgrades:
@@ -77,6 +82,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Recarga m\xE1s r\xE1pido."
     - upgradeName: "Ca\xF1\xF3n largo"
       upgradeCost: 300
@@ -89,6 +95,7 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: "Dispara m\xE1s lejos y m\xE1s r\xE1pido."
     - upgradeName: "Doble ca\xF1\xF3n"
       upgradeCost: 800
@@ -101,4 +108,5 @@ MonoBehaviour:
       grantsCamoDetection: 0
       bonusSlowStrength: 0
       bonusSlowDuration: 0
+      bonusIncome: 0
       description: Dos calaveras por cada una.

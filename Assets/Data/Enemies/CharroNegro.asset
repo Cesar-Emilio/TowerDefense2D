@@ -16,7 +16,11 @@ MonoBehaviour:
   maxHealth: 600
   speed: 0.45
   reward: 100
-  color: {r: 0.15, g: 0.1, b: 0.1, a: 1}
+  frames:
+  - {fileID: 21300000, guid: 68c7f14a0c95aaf47a6d4627b35cd1fe, type: 3}
+  - {fileID: 21300000, guid: 88a1be46c3a6cce4a9439d33768fae6f, type: 3}
+  frameRate: 2
+  color: {r: 1, g: 1, b: 1, a: 1}
   size: 1.1
   child: {fileID: 0}
   childCount: 0

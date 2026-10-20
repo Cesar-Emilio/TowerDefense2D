@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
+  m_Sprite: {fileID: 21300000, guid: 9db93057911b8f1438c09a91ae3d46ff, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6098232410300350570}
   - component: {fileID: 5755259120902431436}
+  - component: {fileID: 8094595264678282627}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -119,7 +120,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1361787428662975842}
@@ -173,8 +174,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.83915305, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 10db5fc73d3872048953117988b12044, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -184,6 +185,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &8094595264678282627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985894411644563357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ff187abc0bee4cb790c7b348ce130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
+  frames:
+  - {fileID: 21300000, guid: 10db5fc73d3872048953117988b12044, type: 3}
+  - {fileID: 21300000, guid: 1a6e710953e0e874bbf6eefcb56e0b16, type: 3}
+  frameRate: 3
+  loop: 1
+  randomStart: 1
 --- !u!1 &9117569187643915654
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,4 +252,5 @@ MonoBehaviour:
   rangeIndicator: {fileID: 8845216135644132179}
   sellRatio: 0.4
   data: {fileID: 11400000, guid: 485fa314f395f554688c07d18db33d8a, type: 2}
+  scaredTint: {r: 0.7, g: 0.4, b: 1, a: 1}
   projectilePrefab: {fileID: 6748569201623024538, guid: 2cf884998bb896f4987122ae1b6145b4, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7641532129465727504}
   - component: {fileID: 5053939316888948939}
   - component: {fileID: 2912548624112633325}
+  - component: {fileID: 12764373232887389}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45616e558ec361248bee6409adb5f19f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,4 +106,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccd11e00743f8a4fa9e051cfeafcc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  speed: 2
+  data: {fileID: 0}
+  slowTint: {r: 0.4, g: 0.7, b: 1, a: 1}
+  maxSlowStrength: 0.9
+  camoAlpha: 0.4
+  terrorAuraColor: {r: 0.6, g: 0.2, b: 0.8, a: 0.15}
+  hitFlashDuration: 0.06
+  hitTint: {r: 1, g: 0.45, b: 0.45, a: 1}
+  auraSprite: {fileID: 21300000, guid: 647e3c71876e23947a8cf2bfb6c90e02, type: 3}
+  rewardTextColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+--- !u!114 &12764373232887389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189326455931678241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ff187abc0bee4cb790c7b348ce130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
+  frames: []
+  frameRate: 4
+  loop: 1
+  randomStart: 1
